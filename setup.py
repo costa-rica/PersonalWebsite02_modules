@@ -13,7 +13,7 @@ setup (
     long_description_content_type="text/markdown",
     url="https://github.com/costa-rica/PersonalWebsite02_modules",
     packages=['pw_config', 'pw_models'],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
