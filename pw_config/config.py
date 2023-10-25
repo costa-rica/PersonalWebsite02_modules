@@ -64,23 +64,15 @@ class ConfigLocal(ConfigBasic):
         self.PROJECT_ROOT = os.environ.get('PROJECT_LOCAL_ROOT')
         # Database
         self.DB_ROOT = self.DB_LOCAL_ROOT
-        self.SQL_URI_USERS = f"sqlite:///{self.DB_LOCAL_ROOT}{os.environ.get('DB_NAME_USERS')}"
-        # self.SQL_URI_CAGE = f"sqlite:///{self.DB_LOCAL_ROOT}{os.environ.get('DB_NAME_CAGE')}"
-        # self.SQL_URI_BLS = f"sqlite:///{self.DB_LOCAL_ROOT}{os.environ.get('DB_NAME_BLS')}"
+        self.SQL_URI_USERS = f"sqlite:///{self.DB_LOCAL_ROOT}{os.environ.get('DB_NAME_BLOGPOST')}"
         # # other directories
-        self.DIR_DB_AUXILARY = os.path.join(self.DB_LOCAL_ROOT,"auxilary")
-        # self.DIR_DB_AUX_IMAGES_PEOPLE = os.path.join(self.DIR_DB_AUXILARY,"images_people")
-        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILARY,"files_website")
-        self.DIR_DB_AUX_FILES_WEBSITE_TEMPLATES = os.path.join(self.DIR_DB_AUXILARY,"files_website","templates")
-        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILARY,"blog")
-        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILARY,"blog","posts")
+        self.DIR_DB_AUXILIARY = os.path.join(self.DB_LOCAL_ROOT,"auxiliary")
+        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILIARY,"files_website")
+        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILIARY,"blog")
+        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILIARY,"blog","posts")
+        self.DIR_DB_AUX_BLOG_ICONS = os.path.join(self.DIR_DB_AUXILIARY,"blog","blog_icons")
 
     DEBUG = True
-    # TEMPLATES_AUTO_RELOAD = False
-    ## removed 2023-03-06: not clear why I had it but it certainly no good for working on the front end.
-    # SCHED_CONFIG_STRING = "ConfigLocal"
-    # CONFIG_TYPE='local'
-
 
 class ConfigDev(ConfigBasic):
 
@@ -89,23 +81,16 @@ class ConfigDev(ConfigBasic):
         self.PROJECT_ROOT = os.environ.get('PROJECT_DEV_ROOT')
         # Database
         self.DB_ROOT = self.DB_DEV_ROOT
-        self.SQL_URI_USERS = f"sqlite:///{self.DB_DEV_ROOT}{os.environ.get('DB_NAME_USERS')}"
-        self.SQL_URI_CAGE = f"sqlite:///{self.DB_DEV_ROOT}{os.environ.get('DB_NAME_CAGE')}"
-        self.SQL_URI_BLS = f"sqlite:///{self.DB_DEV_ROOT}{os.environ.get('DB_NAME_BLS')}"
+        self.SQL_URI_USERS = f"sqlite:///{self.DB_DEV_ROOT}{os.environ.get('DB_NAME_BLOGPOST')}"
         # # other directories
-        self.DIR_DB_AUXILARY = os.path.join(self.DB_DEV_ROOT,"auxilary")
-        # self.DIR_DB_AUX_IMAGES_PEOPLE = os.path.join(self.DIR_DB_AUXILARY,"images_people")
-        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILARY,"files_website")
-        self.DIR_DB_AUX_FILES_WEBSITE_TEMPLATES = os.path.join(self.DIR_DB_AUXILARY,"files_website","templates")
-        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILARY,"blog")
-        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILARY,"blog","posts")
+        self.DIR_DB_AUXILIARY = os.path.join(self.DB_DEV_ROOT,"auxiliary")
+        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILIARY,"files_website")
+        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILIARY,"blog")
+        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILIARY,"blog","posts")
+        self.DIR_DB_AUX_BLOG_ICONS = os.path.join(self.DIR_DB_AUXILIARY,"blog","blog_icons")
 
     DEBUG = True
-    # SQL_URI = env_dict.get('SQL_URI_DEVELOPMENT')
     TEMPLATES_AUTO_RELOAD = True
-    # SCHED_CONFIG_STRING = "ConfigDev"
-    # CONFIG_TYPE='dev'
-
 
 class ConfigProd(ConfigBasic):
         
@@ -114,19 +99,14 @@ class ConfigProd(ConfigBasic):
         self.PROJECT_ROOT = os.environ.get('PROJECT_PROD_ROOT')
         # Database
         self.DB_ROOT = self.DB_PROD_ROOT
-        self.SQL_URI_USERS = f"sqlite:///{self.DB_PROD_ROOT}{os.environ.get('DB_NAME_USERS')}"
-        self.SQL_URI_CAGE = f"sqlite:///{self.DB_PROD_ROOT}{os.environ.get('DB_NAME_CAGE')}"
-        self.SQL_URI_BLS = f"sqlite:///{self.DB_PROD_ROOT}{os.environ.get('DB_NAME_BLS')}"
+        self.SQL_URI_USERS = f"sqlite:///{self.DB_PROD_ROOT}{os.environ.get('DB_NAME_BLOGPOST')}"
         # # other directories
-        self.DIR_DB_AUXILARY = os.path.join(self.DB_PROD_ROOT,"auxilary")
-        # self.DIR_DB_AUX_IMAGES_PEOPLE = os.path.join(self.DIR_DB_AUXILARY,"images_people")
-        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILARY,"files_website")
-        self.DIR_DB_AUX_FILES_WEBSITE_TEMPLATES = os.path.join(self.DIR_DB_AUXILARY,"files_website","templates")
-        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILARY,"blog")
-        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILARY,"blog","posts")
+        self.DIR_DB_AUXILIARY = os.path.join(self.DB_PROD_ROOT,"auxiliary")
+        self.DIR_DB_AUX_FILES_WEBSITE = os.path.join(self.DIR_DB_AUXILIARY,"files_website")
+        self.DIR_DB_AUX_BLOG = os.path.join(self.DIR_DB_AUXILIARY,"blog")
+        self.DIR_DB_AUX_BLOG_POSTS = os.path.join(self.DIR_DB_AUXILIARY,"blog","posts")
+        self.DIR_DB_AUX_BLOG_ICONS = os.path.join(self.DIR_DB_AUXILIARY,"blog","blog_icons")
 
     DEBUG = False
     TESTING = False
     PROPAGATE_EXCEPTIONS = True
-    # SCHED_CONFIG_STRING = "ConfigProd"
-    # CONFIG_TYPE='prod'
