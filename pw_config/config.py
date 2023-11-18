@@ -11,15 +11,18 @@ match os.environ.get('FLASK_CONFIG_TYPE'):
     case 'dev' :
         with open(os.path.join(os.environ.get('CONFIG_PATH_SERVER'), os.environ.get('CONFIG_FILE_NAME'))) as env_file:
             env_dict = json.load(env_file)
-        # os.environ["PROJECT_ROOT"] = "/home/nick/applications/exFlaskBlueprintFrameworkStarterWithLogin_dev/"
+        with open(os.path.join(os.environ.get('CONFIG_PATH_SERVER'), os.environ.get('CONFIG_FILE_NAME_SUPPORT'))) as env_support_file:
+            env_support_dict = json.load(env_support_file)
     case 'prod' :
         with open(os.path.join(os.environ.get('CONFIG_PATH_SERVER'), os.environ.get('CONFIG_FILE_NAME'))) as env_file:
             env_dict = json.load(env_file)
-        # os.environ["PROJECT_ROOT"] = "/home/nick/applications/exFlaskBlueprintFrameworkStarterWithLogin/"
+        with open(os.path.join(os.environ.get('CONFIG_PATH_SERVER'), os.environ.get('CONFIG_FILE_NAME_SUPPORT'))) as env_support_file:
+            env_support_dict = json.load(env_support_file)
     case _:
         with open(os.path.join(os.environ.get('CONFIG_PATH_LOCAL'), os.environ.get('CONFIG_FILE_NAME'))) as env_file:
             env_dict = json.load(env_file)
-        # os.environ["PROJECT_ROOT"] = "/Users/nick/Documents/exFlaskBlueprintFrameworkStarterWithLogin/"
+        with open(os.path.join(os.environ.get('CONFIG_PATH_LOCAL'), os.environ.get('CONFIG_FILE_NAME_SUPPORT'))) as env_support_file:
+            env_support_dict = json.load(env_support_file)
 
 class ConfigBasic():
 
@@ -29,15 +32,13 @@ class ConfigBasic():
         self.DB_DEV_ROOT = os.environ.get('DB_DEV_ROOT')
         self.DB_PROD_ROOT = os.environ.get('DB_PROD_ROOT')
         
-
         #Email stuff
-        self.MAIL_SERVER = env_dict.get('MAIL_SERVER_MSOFFICE')
-        self.MAIL_PORT = env_dict.get('MAIL_PORT')
+        # self.MAIL_SERVER = env_dict.get('MAIL_SERVER_MSOFFICE')
+        # self.MAIL_PORT = env_dict.get('MAIL_PORT')
         self.MAIL_USE_TLS = True
-        self.MAIL_USERNAME = env_dict.get('MAIL_EMAIL')
-        self.MAIL_PASSWORD = env_dict.get('MAIL_PASSWORD')
+        # self.MAIL_USERNAME = env_dict.get('MAIL_EMAIL')
+        # self.MAIL_PASSWORD = env_dict.get('MAIL_PASSWORD')
         self.ACCEPTED_EMAILS = env_dict.get('ACCEPTED_EMAILS')
-
 
         #web Guest
         self.GUEST_EMAIL = env_dict.get('GUEST_EMAIL')
@@ -52,9 +53,16 @@ class ConfigBasic():
         self.BLS_API_URL = env_dict.get('BLS_API_URL')
 
         #Captcha
-        self.SITE_KEY_CAPTCHA = env_dict.get('SITE_KEY_CAPTCHA')
-        self.SECRET_KEY_CAPTCHA = env_dict.get('SECRET_KEY_CAPTCHA')
+        self.SITE_KEY_CAPTCHA = env_support_dict.get('SITE_KEY_CAPTCHA')
+        self.SECRET_KEY_CAPTCHA = env_support_dict.get('SECRET_KEY_CAPTCHA')
         self.VERIFY_URL_CAPTCHA = 'https://www.google.com/recaptcha/api/siteverify'
+
+        #Support
+        self.MAIL_SERVER = env_support_dict.get('MAIL_SERVER_MSOFFICE_SUPPORT')
+        self.MAIL_PORT = env_support_dict.get('MAIL_PORT_SUPPORT')
+        self.MAIL_USE_TLS_SUPPORT = True#<----- what is this?
+        self.MAIL_USERNAME = env_support_dict.get('MAIL_EMAIL_SUPPORT')
+        self.MAIL_PASSWORD = env_support_dict.get('MAIL_PASSWORD_SUPPORT')
 
 
 class ConfigLocal(ConfigBasic):

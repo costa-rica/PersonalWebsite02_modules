@@ -57,8 +57,8 @@ class BlogPosts(Base_users):
     category = Column(Text)
     edited = Column(Text)
     post_dir_name = Column(Text)
-    post_html_filename = Column(Text)
-    word_doc_to_html_filename = Column(Text)
+    post_html_filename = Column(Text)# New post file name
+    word_doc_to_html_filename = Column(Text)# <-- delete and move data to post_html_filename
     images_dir_name = Column(Text)
     blogpost_index_image_filename = Column(Text)
     notes = Column(JSON)
