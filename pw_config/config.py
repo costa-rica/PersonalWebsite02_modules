@@ -63,6 +63,7 @@ class ConfigBasic():
         self.MAIL_USE_TLS_SUPPORT = True#<----- what is this?
         self.MAIL_USERNAME = env_support_dict.get('MAIL_EMAIL_SUPPORT')
         self.MAIL_PASSWORD = env_support_dict.get('MAIL_PASSWORD_SUPPORT')
+        self.MAIL_NICK_GMAIL = env_support_dict.get('MAIL_NICK_GMAIL')
 
 
 class ConfigLocal(ConfigBasic):
